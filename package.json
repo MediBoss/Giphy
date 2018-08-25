@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MediBoss/Giphy/issues"
   },
-  "homepage": "https://github.com/MediBoss/Giphy#readme"
+  "homepage": "https://github.com/MediBoss/Giphy#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
