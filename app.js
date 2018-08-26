@@ -10,7 +10,7 @@ app.set('view engine', 'handlebars');
 
 app.get('/', function (req, res) {
   console.log(req.query.term)
-  var queryString = "Funny Cat";
+  var queryString = req.query.term;
     // ENCODE THE QUERY STRING TO REMOVE WHITE SPACES AND RESTRICTED CHARACTERS
   var term = encodeURIComponent(queryString);
   var url = 'http://api.giphy.com/v1/gifs/search?q=' + term + '&api_key=dc6zaT0xFJmzC'
