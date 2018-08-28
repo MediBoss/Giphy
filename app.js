@@ -1,8 +1,10 @@
 
+  // importing needed external modules
 var express = require('express');
 var exphbs  = require('express-handlebars');
 var http = require('http');
-var app = express();
+
+var app = express(); //initializes a new express object
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
