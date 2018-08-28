@@ -26,7 +26,7 @@ app.get('/', function (request, res) {
 
     response.on('end', function() {
       // Data reception is done, do whatever with it!
-      var parsedDataFromAPI = JSON.parse(body);
+      var parsedDataFromAPI = JSON.parse(dataToBeReturned);
       res.render('home', {gifs: parsedDataFromAPI.data})
     });
   });
