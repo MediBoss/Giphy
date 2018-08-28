@@ -9,25 +9,25 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.get('/', function (req, res) {
-  var queryString = req.query.term;
-  var term = encodeURIComponent(queryString);
+  // The root route
+app.get('/', function (request, res) {
+  var queryString = request.query.term;
+  var term = encodeURIComponent(queryString); // encodes the search term requested
   var url = 'http://api.giphy.com/v1/gifs/search?q=' + term + '&api_key=dc6zaTOxFJmzC';
 
   http.get(url, function(response) {
     response.setEncoding('utf8');
+    var dataToBeReturned = ''; // where the giphs data will are stored
 
-    var body = '';
-
-    response.on('data', function(d) {
+    response.on('data', function(incomingData) {
       // Continuously update stream with data
-      body += d;
+      dataToBeReturned += incomingData;
     });
 
     response.on('end', function() {
       // Data reception is done, do whatever with it!
-      var parsed = JSON.parse(body);
-      res.render('home', {gifs: parsed.data})
+      var parsedDataFromAPI = JSON.parse(body);
+      res.render('home', {gifs: parsedDataFromAPI.data})
     });
   });
 
