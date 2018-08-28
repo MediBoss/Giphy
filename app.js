@@ -26,8 +26,8 @@ app.get('/', function (request, res) {
 
     response.on('end', function() {
       // Data reception is done, do whatever with it!
-      var parsedDataFromAPI = JSON.parse(dataToBeReturned);
-      res.render('home', {gifs: parsedDataFromAPI.data})
+      var parsedDataFromAPI = JSON.parse(dataToBeReturned); // parses the JSON response data into desirable type(giphs in this case)
+      res.render('home', {gifs: parsedDataFromAPI.data}) // updates the view
     });
   });
 
