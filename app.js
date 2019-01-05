@@ -10,7 +10,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-  // The root route
+  // The main route
 app.get('/', function (request, res) {
   var queryString = request.query.term
   var term = encodeURIComponent(queryString); // encodes the search term requested
